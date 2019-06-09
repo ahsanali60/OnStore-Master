@@ -19,7 +19,9 @@ app.use(passport.initialize());
 //Passport Config Strategy
 require("./config/passport")(passport);
 //DB config URl
-const dbURI = require("./config/keys").mongoURI;
+const dbURI =
+  "mongodb+srv://root:root@cluster0-munsr.mongodb.net/OnStore?retryWrites=true";
+//require("./config/keys").mongoURI;
 //connection to mongodb
 mongoose
   .connect(dbURI)
