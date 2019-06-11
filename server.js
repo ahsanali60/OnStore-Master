@@ -20,8 +20,8 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 //DB config URl
 const dbURI =
-  "mongodb+srv://root:root@cluster0-munsr.mongodb.net/OnStore?retryWrites=true";
-//require("./config/keys").mongoURI;
+  //"mongodb+srv://root:root@cluster0-munsr.mongodb.net/OnStore?retryWrites=true";
+  require("./config/keys").mongoURI;
 //connection to mongodb
 mongoose
   .connect(dbURI)
@@ -34,6 +34,7 @@ app.use("/api/orders", orders);
 app.use("/api/products", products);
 //Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
+  console.log(process.env.NODE_ENV);
   //SET Static folder
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {

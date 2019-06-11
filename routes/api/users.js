@@ -76,6 +76,7 @@ router.post("/login", (req, res) => {
 
           const payload = { id: user.id, name: user.name };
           //assign the JWT
+          console.log(keys.secretOrkey);
           jwt.sign(
             payload,
             keys.secretOrkey,
