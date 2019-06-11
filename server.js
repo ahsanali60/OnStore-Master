@@ -20,11 +20,11 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 //DB config URl
 const dbURI =
-  //"mongodb+srv://root:root@cluster0-munsr.mongodb.net/OnStore?retryWrites=true";
-  require("./config/keys").mongoURI;
+  "mongodb+srv://root:root@cluster0-munsr.mongodb.net/OnStore?retryWrites=true";
+
 //connection to mongodb
 mongoose
-  .connect(dbURI)
+  .connect(dbURI, { useNewUrlParser: true })
   .then(() => console.log("MongoDB Connect"))
   .catch(err => console.log(err));
 
